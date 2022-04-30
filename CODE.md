@@ -14,3 +14,43 @@ print("Результат равен:", power(base, exp))
 
 # Задача 1
 Вывод виде таблицы ФИО и даты рождения всех студентов группы
+```python
+import pandas as pd
+surname_n = []
+name_n = []
+birt_t = []
+ex_n = []
+date_n = []
+teacher_n = []
+all_l = []
+n = int(input("Введите количество студентов: "))
+while n<0:
+    print("Повторите ввод")
+    n = int(input("Введите количество студентов еще раз: "))
+for i in range(n):
+    surname = input("Введите фамилию: ")
+    name = input("Введите имя: ")
+    year = int(input("Введите год рождения: "))
+    month = input("Введите месяц рождения: ")
+    ch = int(input("Введите дату рождения: "))
+    birt = str(year)+'.'+month+'.'+str(ch)
+    birt_t.append(birt)
+    surname_n.append(surname)
+    name_n.append(name)
+    ex = int(input("Введите количество экзаменов: "))
+    while ex<3 or ex>5:
+        ex = int(input("Введите количество экзаменов от трех до пяти: "))
+    for i in range(ex):
+        ex1 = input("Введите экзамен: ")
+        ex_n.append(ex)
+        date = input("Введите дату экзамена: ")
+        date_n.append(date)
+        teach = input("Введите преподавателя: ")
+        teacher_n.append(teach)
+all_l.append(surname_n)
+all_l.append(name_n)
+all_l.append(birt_t)
+index = ['Фамилия', 'Имя', 'День рождения']
+df = pd.DataFrame(all_l, index) 
+print(df)
+```
